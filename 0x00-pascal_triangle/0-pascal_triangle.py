@@ -24,6 +24,7 @@ def pascal_triangle(n):
         Compute the middle values based on the previous row"""
         previous_row = triangle[i - 1]
         for j in range(1, i):
+            """Traversal"""
             row.append(previous_row[j - 1] + previous_row[j])
         row.append(1)
         triangle.append(row)
