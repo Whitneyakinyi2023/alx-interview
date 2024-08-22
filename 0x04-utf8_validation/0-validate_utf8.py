@@ -15,12 +15,12 @@ def validUTF8(data):
     num_bytes = 0  # Number of bytes in the current UTF-8 character
 
     for byte in data:
-        # Ensure byte is within the valid range (0-255)
+        """ Ensure byte is within the valid range (0-255)"""
         byte &= 0xFF
 
         # If we're starting a new UTF-8 character:
         if num_bytes == 0:
-            # Determine the number of bytes based on the leading bits
+            """ Determine the numbe based on the leading bits"""
             num_bytes = num_bytes_from_leading_bits(byte)
 
             # Handle single-byte characters (0xxxxxxx)
