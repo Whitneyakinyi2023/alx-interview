@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""UTF8 Validation"""
+"""UTF-8 Validation Module."""
 
 
 def validUTF8(data):
@@ -7,12 +7,11 @@ def validUTF8(data):
     Checks if the given data is valid UTF-8 encoded.
 
     Args:
-        data: A byte string or iterable of bytes.
+        data: A list of integers representing bytes.
 
     Returns:
-        True if the data is valid UTF-8, False otherwise.
+        bool: True if the data is valid UTF-8, False otherwise.
     """
-
     num_bytes = 0  # Number of bytes in the current UTF-8 character
 
     for byte in data:
@@ -33,7 +32,7 @@ def validUTF8(data):
                 return False
 
         # For subsequent bytes, they must match the pattern 10xxxxxx
-        elif not (byte & 0x80 and not (byte & 0x40)):
+        elif not (byte & 0x80 and not byte & 0x40):
             return False
 
         # Decrease the count of bytes in the current UTF-8 character
@@ -45,17 +44,14 @@ def validUTF8(data):
 
 def num_bytes_from_leading_bits(byte):
     """
-    Determines the number of bytes
-    in a UTF-8 character based on its leading bits.
+    Determines the number of bytes in a UTF-8 character based on its leading bits.
 
     Args:
         byte: The first byte of a UTF-8 character.
 
     Returns:
-        The number of bytes
-        in the character, or 0 if it's a single-byte character.
+        int: The number of bytes in the character, or 0 if it's a single-byte character.
     """
-
     num_bytes = 0
     while byte & 0x80:
         num_bytes += 1
