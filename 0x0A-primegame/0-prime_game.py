@@ -3,6 +3,7 @@
 
 
 def sieve_of_eratosthenes(n):
+    """Function for sieving"""
     sieve = [True] * (n + 1)
     sieve[0] = sieve[1] = False
     for i in range(2, int(n**0.5) + 1):
@@ -13,6 +14,7 @@ def sieve_of_eratosthenes(n):
 
 
 def play_game(n, primes):
+    """Play game function"""
     remaining = set(range(1, n + 1))
     maria_turn = True
     while True:
@@ -33,6 +35,7 @@ def play_game(n, primes):
 
 
 def isWinner(x, nums):
+    """Function to determine who is the winner"""
     max_n = max(nums)
     primes = sieve_of_eratosthenes(max_n)
     maria_wins = 0
