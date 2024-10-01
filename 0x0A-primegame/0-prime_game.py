@@ -18,7 +18,7 @@ def play_game(n, primes):
     remaining = set(range(1, n + 1))
     maria_turn = True
     while True:
-        # Find the smallest prime number still in the set
+        """Find the smallest prime number still in the set"""
         prime_to_pick = None
         for num in sorted(remaining):
             if primes[num]:  # Check if it's a prime
